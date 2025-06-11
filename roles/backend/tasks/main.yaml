@@ -56,16 +56,14 @@
   
 
 - name: Load the schema into database
-  tags:
-  - mysql
   community.mysql.mysql_db:
-    state: import
     name: all
+    login_host: "{{ mysql_host  }}"
     login_user: root
     login_password: "{{ mysql_root_pwd }}"
-    login_host: "{{ mysql_host  }}"
+    state: import
     target: /app/schema/backend.sql
-    # config_file: "" # to avoid /root/.my.cnf
+
 
 - name: daemon reload,enabled and restart the backend.server
   ansible.builtin.systemd_service:
