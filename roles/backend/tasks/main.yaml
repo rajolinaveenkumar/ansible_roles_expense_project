@@ -65,6 +65,7 @@
     login_password: "{{ mysql_root_pwd }}"
     state: import
     target: /app/schema/backend.sql
+    config_file: "" # to avoid /root/.my.cnf
 
 - name: daemon reload,enabled and restart the backend.server
   ansible.builtin.systemd_service:
