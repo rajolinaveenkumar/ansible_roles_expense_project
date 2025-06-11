@@ -1,0 +1,5 @@
+- name: Installing MySQL database for expense project
+  hosts: mysql_servers
+  become: yes
+  roles:
+  - mysql
