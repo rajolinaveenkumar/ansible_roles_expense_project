@@ -59,13 +59,13 @@
   tags:
   - mysql
   community.mysql.mysql_db:
-    name: all
-    login_host: "{{ mysql_host  }}"
-    login_user: root
-    login_password: "{{ mysql_root_pwd }}"
     state: import
+    name: all
+    login_user: root
+    login_password: "{{ mysql_root_pwd }}
+    login_host: "{{ mysql_host  }}"
     target: /app/schema/backend.sql
-    config_file: "" # to avoid /root/.my.cnf
+    # config_file: "" # to avoid /root/.my.cnf
 
 - name: daemon reload,enabled and restart the backend.server
   ansible.builtin.systemd_service:
