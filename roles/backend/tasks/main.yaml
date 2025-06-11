@@ -56,6 +56,8 @@
   
 
 - name: Load the schema into database
+  tags:
+  - mysql
   community.mysql.mysql_db:
     # name: all
     login_host: "{{ mysql_host  }}"
