@@ -49,10 +49,13 @@
   community.general.npm:
     path: /app/
 
-- name: Copy backend.service file from ansible to remote server 
+- name: Copy backend.service file from ansible to remote server
+  tags:
+  - test
   ansible.builtin.template:
     src: backend.service.j2
     dest: /etc/systemd/system/backend.service
+  
 
 - name: Load the schema into database
   community.mysql.mysql_db:
