@@ -53,7 +53,7 @@
   tags:
   - test
   ansible.builtin.debug:
-  msg: "{{ mysql_host }}"
+    msg: "{{ mysql_host }}"
 
 - name: Copy backend.service file from ansible to remote server
   tags:
