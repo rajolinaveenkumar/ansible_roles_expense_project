@@ -49,6 +49,12 @@
   community.general.npm:
     path: /app/
 
+- name: print variable
+  tags:
+  - test
+  ansible.builtin.debug:
+  msg: "{{ mysql_host }}"
+
 - name: Copy backend.service file from ansible to remote server
   tags:
   - test
