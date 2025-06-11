@@ -59,7 +59,7 @@
   tags:
   - mysql
   community.mysql.mysql_db:
-    # name: all
+    name: all
     login_host: "{{ mysql_host  }}"
     login_user: root
     login_password: "{{ mysql_root_pwd }}"
