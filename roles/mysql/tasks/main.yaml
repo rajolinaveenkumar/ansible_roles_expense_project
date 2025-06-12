@@ -25,7 +25,8 @@
 - name: collecting mysql database information
   community.mysql.mysql_info:
     login_user: root
-    login_password: "{{ mysql_root_pwd }}"
+    # login_password: "{{ mysql_root_pwd }}"
+    login_password: "{{ lookup('amazon.aws.aws_ssm', '/expense/mysql/mysql_root_password', decrypt=True ) }}"
     login_host: "{{ mysql_host }}"  # here "mysql_servers" or "<private ip >" it will take host from inventory.ini file or we can provide ip address directl
   register: mysql_info
   ignore_errors: true
