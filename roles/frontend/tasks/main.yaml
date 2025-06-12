@@ -27,7 +27,7 @@
 
 - name: include from common role 
   ansible.builtin.include_role:
-    name: commom
+    name: common
     tasks_from: main
 
 - name: copy expense config
