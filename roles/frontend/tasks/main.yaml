@@ -13,7 +13,11 @@
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
-
+    
+- name: creating html
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
 
 - name: Download and unzip the frontend content
   ansible.builtin.unarchive:
