@@ -1,10 +1,15 @@
-- name: Install MySQL libraries
-  ansible.builtin.pip:
-    name: "{{ item }}"
-    executable: pip3.9
-  loop:
-    - PyMySQL
-    - cryptography
+# - name: Install MySQL libraries
+#   ansible.builtin.pip:
+#     name: "{{ item }}"
+#     executable: pip3.9
+#   loop:
+#     - PyMySQL
+#     - cryptography
+
+- name: install python libs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: python-libs
 
 - name: install mysql
   ansible.builtin.dnf:
