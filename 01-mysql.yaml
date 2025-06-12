@@ -1,5 +1,7 @@
 - name: Installing MySQL database for expense project
   hosts: mysql_servers
   become: yes
+  vars_file:
+  - roles/mysql/vars/mysqlvault.yaml
   roles:
   - mysql
