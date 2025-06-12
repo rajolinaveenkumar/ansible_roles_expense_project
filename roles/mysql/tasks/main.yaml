@@ -6,7 +6,7 @@
 #     - PyMySQL
 #     - cryptography
 
-- name: install python libs
+- name: include common role to install python libs # Run tasks/python-libs.yaml instead of 'main'
   ansible.builtin.include_role:
     name: common
     tasks_from: python-libs

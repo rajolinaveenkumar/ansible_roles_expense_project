@@ -9,21 +9,26 @@
     state: started
     enabled: true
 
-- name: Removing nginx default content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-    
-- name: creating html
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
+# - name: Removing nginx default content
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent
 
-- name: Download and unzip the frontend content
-  ansible.builtin.unarchive:
-    src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /usr/share/nginx/html/
-    remote_src: yes
+# - name: creating html
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: directory
+
+# - name: Download and unzip the frontend content
+#   ansible.builtin.unarchive:
+#     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+#     dest: /usr/share/nginx/html/
+#     remote_src: yes
+
+- name: include from common role 
+  ansible.builtin.include_role:
+    name: commom
+    tasks_from: main
 
 - name: copy expense config
   ansible.builtin.template:
