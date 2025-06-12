@@ -22,6 +22,10 @@
     state: started
     enabled: yes
 
+- name: print mysql password form ssm parameter
+  ansible,builtin,debug:
+    msg: "{{ lookup('amazon.aws.aws_ssm', '/expense/mysql/mysql_root_password', decrypt=True ) }}"
+
 - name: collecting mysql database information
   community.mysql.mysql_info:
     login_user: root
