@@ -3,7 +3,7 @@
     path: "{{ APP_LOCATION }}"
     state: absent
     
-- name: creating html
+- name: creating "{{ APP_LOCATION }}" directory
   ansible.builtin.file:
     path: "{{ APP_LOCATION }}"
     state: directory
