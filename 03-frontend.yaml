@@ -1,0 +1,5 @@
+- name: Installing nginx for expense project
+  hosts: frontend_servers
+  become: yes
+  roles:
+  - frontend
